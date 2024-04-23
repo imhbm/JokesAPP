@@ -9,12 +9,14 @@
         <file>c:/Tools/logs/server.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- Daily rollover with indexing for multiple files per day if size exceeds -->
-            <fileNamePattern>c:/Tools/logs/archived/server_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxHistory>7</maxHistory>
+            <fileNamePattern>c:/Tools/logs/archived/server_%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxHistory>1</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10KB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
+            <totalSizeCap>1MB</totalSizeCap>
         </rollingPolicy>
+
     </appender>
 
     <!-- Console Log Appender -->
@@ -25,20 +27,22 @@
         <file>c:/Tools/logs/console.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- Daily rollover with indexing for multiple files per day if size exceeds -->
-            <fileNamePattern>c:/Tools/logs/archived/console_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxHistory>7</maxHistory>
+            <fileNamePattern>c:/Tools/logs/archived/console_%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxHistory>1</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10KB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
+            <totalSizeCap>1MB</totalSizeCap>
         </rollingPolicy>
+
     </appender>
 
-    <!-- Console Appender for STDOUT (direct console output) -->
+    <!-- Console Appender for STDOUT (direct console output)
     <appender name = "STDOUT" class = "ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>[%d{yyyy-MM-dd HH:mm:ss}] - %msg%n</pattern>
         </encoder>
-    </appender>
+    </appender> -->
 
     <!-- Loggers -->
     <logger name="com.dillsedeveloper.joke.server" level="INFO" additivity="false">
